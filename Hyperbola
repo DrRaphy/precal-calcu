@@ -1,0 +1,44 @@
+import math
+
+def solve_hyperbola():
+    print("You've selected a hyperbola.")
+    h = float(input("Enter the x-coordinate of the center (h): "))
+    k = float(input("Enter the y-coordinate of the center (k): "))
+    a_squared = float(input("Enter the squared semi-major axis length (a^2): "))
+    b_squared = float(input("Enter the squared semi-minor axis length (b^2): "))
+
+    # Calculate the center of the hyperbola
+    center = (h, k)
+
+    # Calculate the distance between the center and the foci
+    c = math.sqrt(a_squared + b_squared)
+
+    # Calculate the foci
+    foci1 = (h + c, k)
+    foci2 = (h - c, k)
+
+    # Calculate the slopes of the asymptotes
+    slope_positive_asymptote = b / a
+    slope_negative_asymptote = -b / a
+
+    print(f"The center of the hyperbola is at: ({center[0]}, {center[1]})")
+    print(f"The foci of the hyperbola are at: ({foci1[0]}, {foci1[1]}) and ({foci2[0]}, {foci2[1]})")
+    print(f"The equation of the positive asymptote is: y - {center[1]} = {slope_positive_asymptote:.2f}(x - {center[0]})")
+    print(f"The equation of the negative asymptote is: y - {center[1]} = {slope_negative_asymptote:.2f}(x - {center[0]})")
+
+# Main function
+def main():
+    while True:
+        conic_section = input("What conic section would you like to solve? (hyperbola, parabola, ellipse, circle, or 'exit' to quit): ")
+
+        if conic_section == "hyperbola":
+            solve_hyperbola()
+        # Add similar functions for other conic sections
+        elif conic_section == "exit":
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid conic section. Please choose one of the specified options.")
+
+if __name__ == "__main__":
+    main()

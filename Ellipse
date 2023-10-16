@@ -1,0 +1,38 @@
+import math
+
+def solve_ellipse():
+    print("You've selected an ellipse.")
+    h = float(input("Enter the x-coordinate of the center (h): "))
+    k = float(input("Enter the y-coordinate of the center (k): "))
+    a = float(input("Enter the semi-major axis length (a): "))
+    b = float(input("Enter the semi-minor axis length (b): "))
+
+    # Calculate the properties of the ellipse
+    eccentricity = math.sqrt(1 - (b ** 2 / a ** 2))
+    foci_distance = 2 * math.sqrt(a ** 2 - b ** 2)
+    foci_x1, foci_x2 = h + foci_distance / 2, h - foci_distance / 2
+    vertices_distance = 2 * a
+    vertices_x1, vertices_x2 = h + vertices_distance / 2, h - vertices_distance / 2
+
+    print(f"The eccentricity of the ellipse is: {eccentricity:.2f}")
+    print(f"The distance between the foci is: {foci_distance:.2f}")
+    print(f"The foci of the ellipse are at: ({foci_x1}, {k}) and ({foci_x2}, {k})")
+    print(f"The length of the major axis (vertices) is: {vertices_distance:.2f}")
+    print(f"The vertices of the ellipse are at: ({vertices_x1}, {k}) and ({vertices_x2}, {k})")
+
+# Main function
+def main():
+    while True:
+        conic_section = input("What conic section would you like to solve? (ellipse, circle, parabola, hyperbola, or 'exit' to quit): ")
+
+        if conic_section == "ellipse":
+            solve_ellipse()
+        # Add similar functions for other conic sections
+        elif conic_section == "exit":
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid conic section. Please choose one of the specified options.")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,41 @@
+def solve_parabola():
+    print("You've selected a parabola.")
+    a = float(input("Enter the coefficient of x^2 (a): "))
+    b = float(input("Enter the coefficient of x (b): "))
+    c = float(input("Enter the constant term (c): "))
+
+    # Calculate the x-coordinate of the vertex
+    vertex_x = -b / (2 * a)
+    # Calculate the y-coordinate of the vertex
+    vertex_y = a * vertex_x**2 + b * vertex_x + c
+    # Calculate the axis of symmetry
+    axis_of_symmetry = vertex_x
+
+    # Determine the direction of the parabola
+    if a > 0:
+        direction = "upwards"
+    elif a < 0:
+        direction = "downwards"
+    else:
+        direction = "neither upwards nor downwards (a straight line)"
+
+    print(f"The vertex of the parabola is at: ({vertex_x}, {vertex_y})")
+    print(f"The axis of symmetry is x = {axis_of_symmetry}.")
+    print(f"The parabola opens {direction}.")
+
+# Main function
+def main():
+    while True:
+        conic_section = input("What conic section would you like to solve? (parabola, circle, ellipse, hyperbola, or 'exit' to quit): ")
+
+        if conic_section == "parabola":
+            solve_parabola()
+        # Add similar functions for other conic sections
+        elif conic_section == "exit":
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid conic section. Please choose one of the specified options.")
+
+if __name__ == "__main__":
+    main()
